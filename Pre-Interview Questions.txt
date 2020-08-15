@@ -1,0 +1,103 @@
+import pandas as pd
+data=pd.read_csv("DataSet.csv", index_col="Group")
+rows=data.loc[["A"]]
+print((rows))
+      Index  D1        Exp_D1   D2   TANH_D2
+Group                                        
+A          1  -1      0.367879  2.0  0.964028
+A          5  -5      0.006738 -3.0 -0.995055
+A          9   0      1.000000  2.0  0.964028
+A         13 -10      0.000045 -1.0 -0.761594
+A         17   5    148.413159  1.0  0.761594
+A         21   6    403.428793 -1.0 -0.761594
+A         25  -3      0.049787  0.0  0.000000
+A         29   6    403.428793  3.0  0.995055
+A         33 -10      0.000045  2.0  0.964028
+A         37  -2      0.135335 -3.0 -0.995055
+A         41  -5      0.006738 -1.0 -0.761594
+A         45  -3      0.049787 -2.0 -0.964028
+A         49   7   1096.633158 -1.0 -0.761594
+A         53  -2      0.135335 -3.0 -0.995055
+A         57   3     20.085537 -3.0 -0.995055
+A         61  10  22026.465790 -3.0 -0.995055
+A         65  -3      0.049787  0.0  0.000000
+A         69   9   8103.083928  1.0  0.761594
+A         70   7   1096.633158  1.0  0.761594
+A         74   4     54.598150 -3.0 -0.995055
+A         78  -1      0.367879  3.0  0.995055
+A         79   5    148.413159 -2.0 -0.964028
+A         83   8   2980.957987  1.0  0.761594
+A         87  -4      0.018316  2.0  0.964028
+A         88  -1      0.367879 -1.0 -0.761594
+A         92  -5      0.006738  3.0  0.995055
+A         96   4     54.598150 -1.0 -0.761594
+A         97  -4      0.018316  2.0  0.964028
+A        101   1      2.718282 -2.0 -0.964028
+A        105   8   2980.957987 -3.0 -0.995055
+A        106   2      7.389056  1.0  0.761594
+A        110  10  22026.465790  2.0  0.964028
+A        114  -8      0.000335  1.0  0.761594
+A        115  10  22026.465790 -1.0 -0.761594
+A        119  -6      0.002479  3.0  0.995055
+A        123  -3      0.049787  2.0  0.964028
+A        124  -6      0.002479  3.0  0.995055
+A        128   8   2980.957987 -2.0 -0.964028
+A        132   1      2.718282  1.0  0.761594
+A        133 -10      0.000045  2.0  0.964028
+A        137  -1      0.367879  3.0  0.995055
+A        141   4     54.598150  1.0  0.761594
+A        142  -9      0.000123  0.0  0.000000
+A        146   0      1.000000  0.0  0.000000
+A        150   6    403.428793  1.0  0.761594
+A        151   4     54.598150 -1.0 -0.761594
+A        155  -7      0.000912  2.0  0.964028
+A        159   9   8103.083928  3.0  0.995055
+A        160  -7      0.000912 -1.0 -0.761594
+A        164  -3      0.049787  3.0  0.995055
+A        168  -8      0.000335 -3.0 -0.995055
+A        169  -1      0.367879  2.0  0.964028
+A        173  -7      0.000912  0.0  0.000000
+A        177   6    403.428793  0.0  0.000000
+A        178  -7      0.000912  1.0  0.761594
+A        182   6    403.428793  3.0  0.995055
+
+import pandas as pd
+data=pd.read_csv("DataSet.csv")
+mean_Average=data['Exp_D1'].mean()
+print((mean_Average))
+1733.233092227177
+
+import pandas as pd
+data=pd.read_csv("DataSet.csv", index_col="Index")
+
+rows=data.loc[[1,182]]
+print(rows)
+
+       D1      Exp_D1   D2   TANH_D2 Group
+Index                                     
+1      -1    0.367879  2.0  0.964028     A
+182     6  403.428793  3.0  0.995055     A
+
+import pandas as pd
+import matplotlib.pyplot as plt
+data=pd.read_csv("DataSet.csv")
+
+fig, ax=plt.subplots()
+ax.hist(data['Exp_D1'])
+ax.set_title('Data Set Values')
+ax.set_xlabel('Exp_D1')
+ax.set_ylabel('Index')
+plt.show()
+
+ 
+import pandas as pd
+
+data=pd.read_csv("DataSet.csv")
+
+data.plot.scatter(x='Exp_D1',y='Index',title='Data Set Values')
+
+ 
+
+For number 5 and 6 since the column name Group is a keyword in sqlite3, I cannot access the data in the column and generate the tables according to their groups. 
+I did not want to alter the csv file so, therefore I cannot do it. If the Group column had a different name that was not a keyword then I’d be able to generate the tables. 
+
